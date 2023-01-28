@@ -1,0 +1,34 @@
+.wrapper-cart {
+	@apply relative;
+	.heading {
+		@apply flex;
+		.badge {
+			@apply flex mr-2 w-5 h-5 items-center justify-center bg-red rounded-full text-sm
+            text-white p-1;
+		}
+		.text {
+			@apply tracking-widest uppercase font-medium;
+		}
+	}
+}
+
+.cart {
+	.item {
+		@apply flex items-center gap-4 border-b border-b-[#F7F4F0] pb-4 pt-4;
+	}
+	.name {
+		@apply w-36 truncate tracking-widest font-semibold;
+	}
+	.price {
+		@apply mt-1 text-sm text-beige;
+	}
+}
+
+.footer {
+    > div:first-child{
+        @apply text-sm text-beige;
+    }
+    > div:last-child{
+        @apply text-lg font-semibold;
+    }
+}

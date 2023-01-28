@@ -9,7 +9,7 @@ import { menu } from './menu.data'
 export const Menu: FC = () => {
 	return (
 		<div className={styles.menu}>
-			<Link href="/">
+			<Link href="/" passHref>
 				<Image src="/images/logo.png" width={100} height={100} alt="shop" />
 			</Link>
 			<nav>

@@ -11,7 +11,7 @@ import { ISeo } from './meta.intarface'
 const Meta: FC<PropsWithChildren<ISeo>> = ({
 	title,
 	description,
-	image = '/images/favicon.png',
+	image = '/images/logo.png',
 	children,
 	type = 'website',
 }) => {

@@ -926,7 +926,7 @@
   dependencies:
     "@chakra-ui/checkbox" "2.2.5"
 
-"@chakra-ui/system@>=2.0.0", "@chakra-ui/system@2.3.4":
+"@chakra-ui/system@^2.3.4", "@chakra-ui/system@>=2.0.0", "@chakra-ui/system@2.3.4":
   "integrity" "sha512-/2m8hFfFzOMO2OlwHxTWqINOBJMjxWwU5V/AcB7C0qS51Dcj9c7kupilM6QdqiOLLdMS7mIVRSYr8jn8gMw9fA=="
   "resolved" "https://registry.npmjs.org/@chakra-ui/system/-/system-2.3.4.tgz"
   "version" "2.3.4"

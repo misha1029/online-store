@@ -11,13 +11,20 @@ export const Search: FC = () => {
 			<InputGroup>
 				<InputLeftElement
 					pointerEvents="none"
-					children={<SearchIcon color="gray.300" />}
+					children={<SearchIcon color="gray.500" />}
 				/>
 				<Input
+				variant='flushed'
 					type="search"
 					onChange={(e) => setSearchTerm(e.target.value)}
 					value={searchTesrm}
 					placeholder="Search"
+					_focus={{
+						boxShadow: 'none'
+					}}
+					_focusVisible={{
+						borderColor: '#008D64'
+					}}
 				/>
 			</InputGroup>
 		</div>

@@ -3,6 +3,7 @@ import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react'
 import React, { FC } from 'react'
 
 import useActions from '../../../../../../hooks/useActions'
+import { useCart } from '../../../../../../hooks/useCart'
 import { ICartItem } from '../../../../../types/cart.interface'
 
 export const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
@@ -10,7 +11,6 @@ export const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 		useNumberInput({
 			step: 1,
 			defaultValue: 1,
-			min: 1,
 		})
 
 	const inc = getIncrementButtonProps()
@@ -19,12 +19,17 @@ export const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 
 	const { removeFromCart, changeQuantity } = useActions()
 
+	const { cart } = useCart()
+
+	const quantity = cart.find(cartItem => cartItem.id === item.id)?.quantity
+
 	return (
 		<div>
 			<HStack className="mt-3">
 				<Button
 					{...dec}
 					onClick={() => changeQuantity({ id: item.id, type: 'minus' })}
+					disabled={quantity === 1}
 				>
 					<MinusIcon fontSize={13} />
 				</Button>
@@ -34,6 +39,7 @@ export const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 					focusBorderColor="green.400"
 					readOnly
 					_hover={{ cursor: 'default' }}
+					value={quantity}
 				/>
 				<Button
 					{...inc}

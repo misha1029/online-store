@@ -14,10 +14,13 @@ import { cart } from '../../../data/cart.data'
 
 import styles from './Cart.module.scss'
 import { CartItem } from './cart-item/CartItem'
+import { useTypedSelector } from '../../../../hooks/useTypedSelector'
 
 export const Cart: FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const btnRef = useRef<HTMLButtonElement>(null)
+
+	const cart = useTypedSelector(state => state.cart.items)
 
 	return (
 		<div className={styles['wrapper-cart']}>

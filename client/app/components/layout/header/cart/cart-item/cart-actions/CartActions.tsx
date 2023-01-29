@@ -17,12 +17,15 @@ export const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const dec = getDecrementButtonProps()
 	const input = getInputProps()
 
-	const { removeFromCart } = useActions()
+	const { removeFromCart, changeQuantity } = useActions()
 
 	return (
 		<div>
 			<HStack className="mt-3">
-				<Button {...dec}>
+				<Button
+					{...dec}
+					onClick={() => changeQuantity({ id: item.id, type: 'minus' })}
+				>
 					<MinusIcon fontSize={13} />
 				</Button>
 
@@ -32,7 +35,10 @@ export const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 					readOnly
 					_hover={{ cursor: 'default' }}
 				/>
-				<Button {...inc}>
+				<Button
+					{...inc}
+					onClick={() => changeQuantity({ id: item.id, type: 'plus' })}
+				>
 					<AddIcon fontSize={13} />
 				</Button>
 			</HStack>

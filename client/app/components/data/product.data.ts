@@ -16,7 +16,7 @@ export const products: IProduct[] = [
     {
         id: 2,
         description: 'discourse 2222 intended to give a mental image of something experienced',
-        name: 'Cold Brew Coffee',
+        name: 'Cold Brew Coffee Beverages',
         images: [
             '/images/products/coldbrew.png'
         ],
@@ -25,7 +25,7 @@ export const products: IProduct[] = [
     },
     {
         id: 3,
-        description: 'discourse 2222 intended to give a mental image of something experienced',
+        description: 'discourse 333 intended to give a mental image of something experienced',
         name: 'Matcha Crème Frappuccino® Blended Beverage',
         images: [
             '/images/products/matcha.png'
@@ -35,12 +35,22 @@ export const products: IProduct[] = [
     },
     {
         id: 4,
-        description: 'discourse 2222 intended to give a mental image of something experienced',
+        description: 'discourse 444 intended to give a mental image of something experienced',
         name: 'Mango Dragonfruit Lemonade Starbucks Refreshers® Beverage',
         images: [
             '/images/products/mango.png'
         ],
         price: 8,
+        review: []
+    },
+    {
+        id: 5,
+        description: 'discourse 555 intended to give a mental image of something experienced',
+        name: 'Peppermint Hot Chocolate',
+        images: [
+            '/images/products/pepperminthot.png'
+        ],
+        price: 10,
         review: []
     },
 ]

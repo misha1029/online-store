@@ -22,6 +22,11 @@
 	.price {
 		@apply mt-1 text-sm text-beige;
 	}
+	.variation {
+		@apply mt-1 text-xs  text-beige capitalize opacity-70;
+	 	
+	}
+	
 }
 
 .footer {

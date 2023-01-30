@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
+import { products } from '../../data/product.data'
+
 import Layout from '../../layout/Layout'
+import { Catalog } from '../../ui/catalog/Catalog'
 
 export const Home: FC = () => {
-  return (
-    <Layout title='Home'>
-      <div className='flex h-screen w-full items-center justify-center'>
-        <h1 className='text-center text-7xl font-bold text-red' >Shop</h1>
-
-      </div>
-    </Layout>
-  )
+	return (
+		<Layout title="Home" description='More than just great coffee'>
+			<Catalog products={products}/>
+		</Layout>
+	)
 }

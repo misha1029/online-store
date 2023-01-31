@@ -1,41 +1,38 @@
-import { Button } from '@chakra-ui/react'
 import cn from 'clsx'
-import Image from 'next/image'
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, useState } from 'react'
 
-import { COLORS } from '../../../../../config/color.config'
 import useActions from '../../../../../hooks/useActions'
-import { TypeSize } from '../../../../../store/types'
-import { IProduct } from '../../../../types/product.interface'
+import { useCarousel } from '../../../../../hooks/useCarousel'
+import { TypeSize } from '../../../../../store/cart/cart.types'
 import styles from '../Carousel.module.scss'
 
 import { CarouselButton } from './CarouselButton'
 import { CarouselVariation } from './CarouselVariation'
+import { CarouselNavigaation } from './carousel-navigation/CarouselNavigation'
+import { ICarouselItem } from './carousel.interface'
 
-export const CarouselItem: FC<{ product: IProduct }> = ({ product }) => {
+export const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 	const [selectedSize, setSelectedSize] = useState<TypeSize>('SHORT')
 
-	const isActive = product.id === 2
+	const { selectedItemIndex } = useCarousel()
+	const { selectSlide } = useActions()
+
+	const isActive = index === selectedItemIndex
 
 	return (
 		<div
 			className={cn(styles.item, {
 				[styles.active]: isActive,
 			})}
+			area-lable="Select item"
+			role="button"
 		>
 			<div>
-				<div className={styles.image}>
-					<Image
-						alt={product.name}
-						src={product.images[0]}
-						width={300}
-						height={300}
-					/>
-				</div>
+				<CarouselNavigaation onSelectedSlide={() => selectSlide(index)} product={product} isActive={isActive} />
 
-				<div className={styles.heading}>
-					<div>{product.name}</div>
-				</div>
+				<button className={styles.heading} onClick={() => selectSlide(index)}>
+					<span>{product.name}</span>
+				</button>
 				{isActive ? (
 					<>
 						<CarouselVariation

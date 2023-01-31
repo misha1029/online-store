@@ -5,10 +5,10 @@ import {
 	IAddToCartPayload,
 	IChangeQuantityPayload,
 	IChangeSizePayload,
-	IInitialState,
-} from '../types'
+	ICartInitialState,
+} from './cart.types'
 
-const initialState: IInitialState = {
+const initialState: ICartInitialState = {
 	items: cart,
 }
 

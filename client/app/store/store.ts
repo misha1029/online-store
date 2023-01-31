@@ -3,6 +3,7 @@ import { curryGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddl
 import { getDefaultSettings } from 'http2'
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { carouselReducer } from './carousel/carousel.slice'
 
 import { cartReducer } from './cart/cart.slice'
 
@@ -16,6 +17,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
 	cart: cartReducer,
+	carousel: carouselReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

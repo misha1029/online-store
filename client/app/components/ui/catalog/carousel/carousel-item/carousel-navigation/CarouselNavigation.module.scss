@@ -1,0 +1,19 @@
+.navigation {
+	@apply relative -mt-[4.5rem];
+
+	.image {
+		
+	}
+
+    .arrows{
+        @apply flex items-center absolute justify-between w-full z-10;
+        top: 50%;
+
+
+        .arrow {
+            @apply text-white;
+            background: none;
+        }
+    }
+
+}

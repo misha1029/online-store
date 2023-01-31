@@ -1,6 +1,6 @@
-import { ICartItem } from "../components/types/cart.interface";
+import { ICartItem } from "../../components/types/cart.interface";
 
-export interface IInitialState {
+export interface ICartInitialState {
 	items: ICartItem[]
 }
 

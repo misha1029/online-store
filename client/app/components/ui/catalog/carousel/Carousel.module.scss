@@ -5,14 +5,10 @@
 .item {
 	@apply relative rounded-3xl bg-light-gray p-5 pt-0 mb-8;
 
-	.image {
-		@apply -mt-[4.5rem];
-	}
-
 	.heading {
-		@apply text-xl text-beige font-bold leading-7;
+		@apply text-xl text-beige font-bold leading-7 block text-left;
 
-		> div {
+		> span {
 			display: -webkit-box;
 			-webkit-line-clamp: 2;
 			-webkit-box-orient: vertical;

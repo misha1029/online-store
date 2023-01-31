@@ -2,7 +2,7 @@ import cn from 'clsx'
 import React, { Dispatch, FC, SetStateAction } from 'react'
 
 import { useCart } from '../../../../../hooks/useCart'
-import { TypeSize } from '../../../../../store/types'
+import { TypeSize } from '../../../../../store/cart/cart.types'
 import styles from '../Carousel.module.scss'
 
 const SIZES: TypeSize[] = ['SHORT', 'TALL', 'GRANDE', 'VENTI']

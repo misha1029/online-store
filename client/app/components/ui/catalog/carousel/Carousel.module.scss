@@ -1,3 +1,6 @@
+
+
+
 .carousel {
 	@apply grid grid-cols-4 gap-8 mt-32;
 }
@@ -18,8 +21,8 @@
 	}
 
 	.description {
-		@apply mt-5 text-sm text-beige opacity-90;
-		animation: animationOpacity 0.5s;
+		@apply mt-5 text-sm text-beige opacity-90 animate-opacity;
+		
 	}
 
 	> div {
@@ -27,8 +30,7 @@
 	}
 
 	.variations {
-		@apply grid grid-cols-4 gap-2.5 mt-6;
-		animation: animationOpacity 0.5s;
+		@apply grid grid-cols-4 gap-2.5 mt-6 animate-opacity;
 
 		> button {
 			@apply transition-colors text-[0.6rem] font-semibold py-1 px-0.5 uppercase text-center border 
@@ -62,12 +64,3 @@
 	}
 }
 
-
-@keyframes animationOpacity {
-	from {
-		opacity: 0.2;
-	}
-	to {
-		opacity: 1;
-	}
-}

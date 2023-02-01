@@ -11,6 +11,8 @@ import { CarouselVariation } from './CarouselVariation'
 import { CarouselNavigaation } from './carousel-navigation/CarouselNavigation'
 import { ICarouselItem } from './carousel.interface'
 
+import { motion } from 'framer-motion'
+
 export const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 	const [selectedSize, setSelectedSize] = useState<TypeSize>('SHORT')
 
@@ -20,12 +22,16 @@ export const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 	const isActive = index === selectedItemIndex
 
 	return (
-		<div
+		<motion.div
 			className={cn(styles.item, {
 				[styles.active]: isActive,
 			})}
+			initial={{scale: 1}}
+			animate={isActive ? {scale: 1.12} : {}}
+			transition={{duration: 0.6, type: 'tween'}}
 			area-lable="Select item"
 			role="button"
+			
 		>
 			<div>
 				<CarouselNavigaation onSelectedSlide={() => selectSlide(index)} product={product} isActive={isActive} />
@@ -45,6 +51,6 @@ export const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 					<div className={styles.description}>{product.description}</div>
 				)}
 			</div>
-		</div>
+		</motion.div>
 	)
 }

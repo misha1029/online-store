@@ -16,7 +16,7 @@ export const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addItem: (state, action: PayloadAction<IAddToCartPayload>) => {
+		addFromCart: (state, action: PayloadAction<IAddToCartPayload>) => {
 			const isExistSize = state.items.some( // проверяем существует ли элемент в массиве с таким размером
 				(item) => item.size === action.payload.size
 			)

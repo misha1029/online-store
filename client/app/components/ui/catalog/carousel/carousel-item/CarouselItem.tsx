@@ -1,4 +1,6 @@
 import cn from 'clsx'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 import React, { Dispatch, FC, useState } from 'react'
 
 import useActions from '../../../../../hooks/useActions'
@@ -10,8 +12,6 @@ import { CarouselButton } from './CarouselButton'
 import { CarouselVariation } from './CarouselVariation'
 import { CarouselNavigaation } from './carousel-navigation/CarouselNavigation'
 import { ICarouselItem } from './carousel.interface'
-
-import { motion } from 'framer-motion'
 
 export const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 	const [selectedSize, setSelectedSize] = useState<TypeSize>('SHORT')
@@ -26,15 +26,18 @@ export const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 			className={cn(styles.item, {
 				[styles.active]: isActive,
 			})}
-			initial={{scale: 1}}
-			animate={isActive ? {scale: 1.12} : {}}
-			transition={{duration: 0.6, type: 'tween'}}
+			initial={{ scale: 1 }}
+			animate={isActive ? { scale: 1.12 } : {}}
+			transition={{ duration: 0.6, type: 'tween' }}
 			area-lable="Select item"
 			role="button"
-			
 		>
 			<div>
-				<CarouselNavigaation onSelectedSlide={() => selectSlide(index)} product={product} isActive={isActive} />
+				<CarouselNavigaation
+					onSelectedSlide={() => selectSlide(index)}
+					product={product}
+					isActive={isActive}
+				/>
 
 				<button className={styles.heading} onClick={() => selectSlide(index)}>
 					<span>{product.name}</span>
@@ -46,6 +49,11 @@ export const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 							setSelectedSize={setSelectedSize}
 						/>
 						<CarouselButton product={product} selectedSize={selectedSize} />
+						<div className={styles.link}>
+							<Link href={`/product/${product.slug}`} >
+								More information
+							</Link>
+						</div>
 					</>
 				) : (
 					<div className={styles.description}>{product.description}</div>

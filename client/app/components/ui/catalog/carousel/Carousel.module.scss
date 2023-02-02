@@ -1,8 +1,5 @@
-
-
-
 .carousel {
-	@apply grid grid-cols-4 gap-8 mt-32;
+	@apply grid grid-cols-4 gap-8 mt-28;
 }
 
 .item {
@@ -10,7 +7,6 @@
 
 	.heading {
 		@apply text-xl text-beige font-bold leading-7 block text-left;
-		
 
 		> span {
 			display: -webkit-box;
@@ -22,7 +18,6 @@
 
 	.description {
 		@apply mt-5 text-sm text-beige opacity-90 animate-opacity;
-		
 	}
 
 	> div {
@@ -40,6 +35,10 @@
 				@apply text-dark-green bg-white;
 			}
 		}
+	}
+
+	.link {
+		@apply mt-3 block text-center text-xs text-white;
 	}
 
 	&.active {
@@ -63,4 +62,3 @@
 		}
 	}
 }
-

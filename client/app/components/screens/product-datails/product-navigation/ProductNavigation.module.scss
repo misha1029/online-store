@@ -1,0 +1,17 @@
+.nav {
+	@apply flex justify-end mt-4;
+	> a {
+		@apply opacity-80 transition-opacity duration-300;
+
+		&:hover {
+			@apply opacity-100;
+		}
+	}
+}
+
+.disabled {
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+	opacity: 0.2 !important;
+}

@@ -27,6 +27,7 @@ export const ProductRating: FC<IProductDetails> = ({ product }) => {
 		<div className={styles.rating}>
 			<span>Review: </span>
 			<Rating
+				readonly // TODO
 				onClick={handleRating}
 				onPointerEnter={onPointerEnter}
 				onPointerLeave={onPointerLeave}

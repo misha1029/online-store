@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 import { products } from '../../data/product.data'
 import Layout from '../../layout/Layout'
@@ -11,6 +11,8 @@ import { ProductCard } from './product-cart/ProductCard'
 import { ProductNavigation } from './product-navigation/ProductNavigation'
 
 export const ProductDetails: FC<IProductDetails> = ({product}) => {
+	
+
 	return (
 		<Layout title={product.name} description={product.description}>
 			<Heading>Product Details</Heading>

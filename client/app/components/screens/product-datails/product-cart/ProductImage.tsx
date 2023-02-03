@@ -6,13 +6,17 @@ import { IProductDetails } from '../../../types/product.interface'
 
 import styles from './ProductCard.module.scss'
 
-export const ProductImage: FC<IProductDetails> = ({ product }) => {
+interface IProductImage extends IProductDetails {
+	currentImageIndex: number
+}
+
+export const ProductImage: FC<IProductImage> = ({ product, currentImageIndex }) => {
 	return (
 		<div className={styles.image}>
 			<div className={styles.main}>
 				<div>
 					<Image
-						src={product.images[0]}
+						src={product.images[currentImageIndex]}
 						alt={product.name}
 						width={260}
 						height={260}

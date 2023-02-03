@@ -1,19 +1,35 @@
+import cn from 'clsx'
 import Image from 'next/image'
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 
 import { IProductDetails } from '../../../types/product.interface'
 
 import styles from './ProductCard.module.scss'
 
-export const ProductIfonmation: FC<IProductDetails> = ({ product }) => {
+interface IProductIfonmation extends IProductDetails {
+	currentImageIndex: number
+	setCurrentImageIndex: Dispatch<SetStateAction<number>>
+}
+
+export const ProductIfonmation: FC<IProductIfonmation> = ({
+	product,
+	currentImageIndex,
+	setCurrentImageIndex,
+}) => {
 	return (
 		<div className={styles.information}>
 			<h2>{product.name}</h2>
 			<div>
 				<p>{product.description}</p>
 			</div>
-			{product.images.map((image) => (
-				<button key={image}>
+			{product.images.map((image, index) => (
+				<button
+					key={image}
+					onClick={() => setCurrentImageIndex(index)}
+					className={cn({
+						[styles.active]: index === currentImageIndex,
+					})}
+				>
 					<Image src={image} alt="" width={50} height={50} />
 				</button>
 			))}

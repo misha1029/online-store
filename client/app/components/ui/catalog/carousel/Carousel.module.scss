@@ -61,4 +61,10 @@
 			@apply text-dark-green bg-white;
 		}
 	}
+
+	&.medium {
+		> button {
+			@apply text-[0.8rem];
+		}
+	}
 }

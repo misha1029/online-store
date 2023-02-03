@@ -10,15 +10,19 @@ const SIZES: TypeSize[] = ['SHORT', 'TALL', 'GRANDE', 'VENTI']
 interface ICarouselVariation {
 	selectedSize: TypeSize
 	setSelectedSize: Dispatch<SetStateAction<TypeSize>>
+	variant?: 'small' | 'medium'
 }
 
 export const SizelVariation: FC<ICarouselVariation> = ({
 	selectedSize,
 	setSelectedSize,
+	variant = 'small',
 }) => {
 	const { cart } = useCart()
 	return (
-		<div className={styles.variations}>
+		<div className={cn(styles.variations, {
+			[styles.medium]: variant === 'medium'
+		})}>
 			{SIZES.map((size) => (
 				<button
 					key={size}

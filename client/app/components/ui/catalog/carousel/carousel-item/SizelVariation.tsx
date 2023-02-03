@@ -12,7 +12,7 @@ interface ICarouselVariation {
 	setSelectedSize: Dispatch<SetStateAction<TypeSize>>
 }
 
-export const CarouselVariation: FC<ICarouselVariation> = ({
+export const SizelVariation: FC<ICarouselVariation> = ({
 	selectedSize,
 	setSelectedSize,
 }) => {

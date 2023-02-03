@@ -3,11 +3,8 @@ import React from 'react'
 
 import { products } from '../../app/components/data/product.data'
 import { ProductDetails } from '../../app/components/screens/product-datails/ProductDetails'
-import { IProduct } from '../../app/components/types/product.interface'
+import { IProduct, IProductDetails } from '../../app/components/types/product.interface'
 
-export interface IProductDetails {
-	product: IProduct
-}
 
 const ProductDatailsPage: NextPage<IProductDetails> = ({ product }) => {
 	return <ProductDetails product={product} />

@@ -2,7 +2,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react'
 import Link from 'next/link'
 import React, { FC } from 'react'
 
-import { IProductDetails } from '../../../../../pages/product/[slug]'
+import { IProductDetails } from '../../../types/product.interface'
 
 export const Breadcrumbs: FC<IProductDetails> = ({ product }) => {
 	return (

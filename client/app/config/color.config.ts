@@ -8,4 +8,5 @@ export const COLORS = {
 	'light-gray': '#E8E7E3',
 	white: '#ffffff',
 	beige: '#A49B8F',
+	'dark-beige': '#6b655d'
 }

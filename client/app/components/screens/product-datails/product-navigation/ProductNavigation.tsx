@@ -10,12 +10,12 @@ export const ProductNavigation: FC<{ productId: number }> = ({ productId }) => {
 	const { nestProductSlug, prevProductSlug } = useProductNavigation(productId)
 	return (
 		<div className={styles.nav}>
-			<div className={cn({ [styles.disabled]: !prevProductSlug })}>
+			<div className={cn({ [styles.disabled]: !prevProductSlug }, styles.link)}>
 				<Link href={`/product/${prevProductSlug}`}>
 					<ChevronLeftIcon fontSize={46} color="#222" />
 				</Link>
 			</div>
-			<div className={cn({ [styles.disabled]: !nestProductSlug })}>
+			<div className={cn({ [styles.disabled]: !nestProductSlug }, styles.link)}>
 				<Link href={`/product/${nestProductSlug}`}>
 					<ChevronRightIcon fontSize={46} color="#222" />
 				</Link>

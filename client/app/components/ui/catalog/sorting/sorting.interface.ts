@@ -1,8 +1,9 @@
+
 export enum EnumSorting {
-    LOW_TO_HIGH_PRICE = 'LOW_TO_HIGH_PRICE',
-    HICH_TO_LOW_PRICE = 'HICH_TO_LOW_PRICE',
-    NEWEST = 'NEWEST',
-    OLDEST = 'OLDEST'
+    LOW_TO_HIGH_PRICE = 'low-to-high',
+    HICH_TO_LOW_PRICE = 'high-to-low',
+    NEWEST = 'newest',
+    OLDEST = 'oldest'
 }
 
 export interface ISortingItem{

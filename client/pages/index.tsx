@@ -4,6 +4,8 @@ import { Home } from '../app/components/screens/Home/Home'
 import { IProduct } from '../app/components/types/product.interface'
 import { ProductService } from '../app/service/ProductService'
 
+
+
 export interface IProductsPage {
   products: IProduct[]
 }
@@ -22,11 +24,11 @@ const HomePage: NextPage<IProductsPage> = ({products}) => {
 }
 
 export const getStaticProps: GetStaticProps<IProductsPage> = async () => {
-  const {data} = await ProductService.getProducts()
+  const products = await ProductService.getProducts()
 
   return {
     props: {
-      products : data
+      products
     }
   }
 }

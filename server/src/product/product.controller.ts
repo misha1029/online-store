@@ -9,28 +9,34 @@ import {
   Query,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
-
+import { sortType } from './sort.type';
 
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Get()
-  findAll(@Query('serchTerm') serchTerm?: string) {
-    return this.productService.findAll(serchTerm);
+  async findAll(@Query('sortType') type?: sortType) {
+    return this.productService.findAll(type);
   }
+
+  @Get('search')
+  async bySearchTerm(@Query('serchTerm') serchTerm?: string) {
+    return this.productService.bySearchTerm(serchTerm);
+  }
+
   @Get('/slug/:slug')
-  findBySlug(@Param('slug') slug: string) {
+  async findBySlug(@Param('slug') slug: string) {
     return this.productService.findBySlug(slug);
   }
 
   @Get('/relatives/:id')
-  findRelative(@Param('id') id: string) {
+  async findRelative(@Param('id') id: string) {
     return this.productService.findRelative(+id);
   }
 
   @Get(':id')
-  findById(@Param('id') id: string) {
+  async findById(@Param('id') id: string) {
     return this.productService.findById(+id);
   }
 }

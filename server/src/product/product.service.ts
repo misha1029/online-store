@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { ReviewService } from 'src/review/review.service';
+import { sortType } from './sort.type';
 
 @Injectable()
 export class ProductService {
@@ -9,7 +10,7 @@ export class ProductService {
     private reviewService: ReviewService,
   ) {}
 
-  findAll(searchTerm?: string) {
+  bySearchTerm(searchTerm?: string) {
     return this.prisma.product.findMany(
       searchTerm
         ? {
@@ -44,7 +45,7 @@ export class ProductService {
 
     if (!product) throw new NotFoundException('product not faund!');
 
-    return product
+    return product;
   }
 
   async findBySlug(slug: string) {
@@ -65,6 +66,19 @@ export class ProductService {
           not: currentProductId,
         },
       },
+    });
+  }
+
+  findAll(type?: sortType) {
+    const isByPrice = type === 'high-to-low' || type === 'low-to-high';
+    const isAsc = type === 'oldest' || type === 'low-to-high';
+
+    const orderBy = {
+      [isByPrice ? 'price' : 'createAt']: isAsc ? 'asc' : 'desc',
+    } as any;
+
+    return this.prisma.product.findMany({
+      orderBy
     });
   }
 }

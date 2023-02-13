@@ -10,7 +10,7 @@ export const Menu: FC = () => {
 	return (
 		<div className={styles.menu}>
 			<Link href="/" passHref>
-				<Image src="/images/logo.png" width={100} height={100} alt="shop" />
+				<Image src="/images/logo.png" width={100} height={100} alt='' />
 			</Link>
 			<nav>
 				<ul>

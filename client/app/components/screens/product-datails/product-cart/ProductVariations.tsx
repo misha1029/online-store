@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import React, {FC, useState } from 'react'
 
 import { TypeSize } from '../../../../store/cart/cart.types'
 import { IProductDetails } from '../../../types/product.interface'
@@ -13,7 +13,6 @@ export const ProductVariations: FC<IProductDetails> = ({
 	product
 }) => {
 	const [selectedSize, setSelectedSize] = useState<TypeSize>('SHORT')
-
 	return (
 		<div className={styles.variations}>
 			<ProductRating product={product} />

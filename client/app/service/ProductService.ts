@@ -15,19 +15,26 @@ export const ProductService = {
 		return data
 	},
 	async bySerchTerm(serchTerm: string) {
-		return axiosClassic.get<IProduct[]>(`${PRODUCTS}/search`, {
+		if (!serchTerm.length) {
+			return []
+		}
+		const { data } = await axiosClassic.get<IProduct[]>(`${PRODUCTS}/search`, {
 			params: {
 				serchTerm,
 			},
 		})
+		return data
 	},
 	async byId(id: number) {
 		return axiosClassic.get<IProduct>(`${PRODUCTS}/${id}`)
 	},
 	async bySlug(slug?: string) {
-		return axiosClassic.get<IProduct>(`${PRODUCTS}/slug/${slug}`)
+		const { data } = await axiosClassic.get<IProduct>(
+			`${PRODUCTS}/slug/${slug}`
+		)
+		return data
 	},
-	async byrelatives(withoutId?: number) {
+	async byRelatives(withoutId?: number) {
 		return axiosClassic.get<IProduct[]>(`${PRODUCTS}/relatives/${withoutId}`)
 	},
 }

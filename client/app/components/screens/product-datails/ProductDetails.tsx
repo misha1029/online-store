@@ -19,8 +19,6 @@ export const ProductDetails: FC<IProductDetails> = ({ product }) => {
 				<ProductNavigation productId={product.id} />
 			</div>
 			<ProductCard product={product} />
-
-			<Catalog products={products} />
 		</Layout>
 	)
 }

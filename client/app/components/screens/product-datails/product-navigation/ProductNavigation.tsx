@@ -8,6 +8,7 @@ import { useProductNavigation } from './useProductNavigation'
 
 export const ProductNavigation: FC<{ productId: number }> = ({ productId }) => {
 	const { nestProductSlug, prevProductSlug } = useProductNavigation(productId)
+
 	return (
 		<div className={styles.nav}>
 			<div className={cn({ [styles.disabled]: !prevProductSlug }, styles.link)}>

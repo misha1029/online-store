@@ -53,6 +53,9 @@ export class ProductService {
       where: {
         slug,
       },
+      include: {
+        reviews: true,
+      },
     });
     if (!product) throw new NotFoundException('product not faund!');
     return product;

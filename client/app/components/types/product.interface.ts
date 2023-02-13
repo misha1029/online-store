@@ -6,7 +6,7 @@ export interface IProduct {
     slug: string
     description: string
     price: number
-    review: IReview[]
+    reviews: IReview[]
     images: string[]
 }
 

@@ -23,9 +23,10 @@ const HomePage: NextPage<IProductsPage> = ({products}) => {
   )
 }
 
+
+
 export const getStaticProps: GetStaticProps<IProductsPage> = async () => {
   const products = await ProductService.getProducts()
-
   return {
     props: {
       products
